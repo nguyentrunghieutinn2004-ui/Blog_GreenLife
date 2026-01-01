@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Life - Chậu Cây Cảnh Cao Cấp</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8f5e9 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2e7d32 0%, #4caf50 100%);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(46, 125, 50, 0.3);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-title {
+            color: white;
+            font-size: 28px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        nav a:hover {
+            color: #a5d6a7;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            background: white;
+            color: #2e7d32;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.2);
+        }
+
+        .search-container {
+            background: white;
+            padding: 30px 0;
+            border-radius: 20px;
+            margin: 20px 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .search-box {
+            display: flex;
+            max-width: 600px;
+            margin: 0 auto;
+            background: #f5f5f5;
+            border-radius: 50px;
+            overflow: hidden;
+        }
+
+        .search-box input {
+            flex: 1;
+            border: none;
+            padding: 15px 25px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .search-box button {
+            background: linear-gradient(135deg, #2e7d32, #4caf50);
+            border: none;
+            padding: 15px 30px;
+            color: white;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .hero {
+            padding: 80px 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(232,245,233,0.9));
+            border-radius: 30px;
+            margin: 30px 0;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .hero-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hero-heading {
+            font-size: 48px;
+            font-weight: 800;
+            color: #2e7d32;
+            margin-bottom: 25px;
+        }
+
+        .hero-desc {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .hero-media img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(46, 125, 50, 0.3);
+        }
+
+        .hero-row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn-action {
+            background: linear-gradient(135deg, #2e7d32, #4caf50);
+            color: white;
+        }
+
+        .about {
+            padding: 80px 0;
+        }
+
+        .about-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .section-heading {
+            font-size: 36px;
+            font-weight: 700;
+            color: #2e7d32;
+            margin-bottom: 20px;
+        }
+
+        .section-desc {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .about-checklist {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .about-check-item {
+            padding: 15px 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            padding-left: 50px;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .about-check-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 6px 20px rgba(46, 125, 50, 0.2);
+        }
+
+        .about-check-item::before {
+            content: '✓';
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 25px;
+            height: 25px;
+            background: #4caf50;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .about-img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            transition: transform 0.3s;
+        }
+
+        .about-img:hover {
+            transform: scale(1.03);
+        }
+
+        .service {
+            padding: 80px 0;
+            background: white;
+            border-radius: 30px;
+            margin: 30px 0;
+        }
+
+        .service-top {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .service-desc {
+            color: #4caf50;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(46, 125, 50, 0.2);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 25px;
+        }
+
+        .product-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: #2e7d32;
+            margin-bottom: 10px;
+        }
+
+        .product-desc {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .product-price {
+            font-size: 22px;
+            font-weight: 700;
+            color: #e91e63;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #f5f5f5;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 24px;
+            transition: all 0.3s;
+            z-index: 10;
+        }
+
+        .modal-close:hover {
+            background: #e91e63;
+            color: white;
+        }
+
+        .modal-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            padding: 40px;
+        }
+
+        .modal-image {
+            width: 100%;
+            border-radius: 15px;
+        }
+
+        .modal-details h2 {
+            font-size: 32px;
+            color: #2e7d32;
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .modal-price {
+            font-size: 36px;
+            color: #e91e63;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+
+        .detail-item {
+            padding: 15px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            color: #555;
+            margin-bottom: 5px;
+        }
+
+        .detail-value {
+            color: #333;
+        }
+
+        .modal-description {
+            margin-top: 25px;
+            line-height: 1.8;
+            color: #666;
+        }
+
+        .btn-order {
+            width: 100%;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #2e7d32, #4caf50);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 30px;
+            transition: all 0.3s;
+        }
+
+        .btn-order:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(46, 125, 50, 0.3);
+        }
+
+        footer {
+            background: linear-gradient(135deg, #1b5e20, #2e7d32);
+            color: white;
+            padding: 60px 0 30px;
+            margin-top: 30px;
+        }
+
+        .footer-inner {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 60px;
+            margin-bottom: 30px;
+        }
+
+        .subscribe-form {
+            display: flex;
+            margin: 30px 0;
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        .subscribe-form input {
+            flex: 1;
+            border: none;
+            padding: 15px 20px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .subscribe-form button {
+            background: #4caf50;
+            border: none;
+            padding: 15px 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .subscribe-form button:hover {
+            background: #66bb6a;
+        }
+
+        .social-list {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-item {
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .social-item:hover {
+            transform: translateY(-5px);
+            background: #a5d6a7;
+        }
+
+        .footer-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .footer-heading {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .footer-list {
+            list-style: none;
+        }
+
+        .footer-list li {
+            margin-bottom: 12px;
+        }
+
+        .footer-link {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .footer-link:hover {
+            color: #a5d6a7;
+            padding-left: 5px;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .hero-inner, .about-inner, .products-grid, .footer-inner, .modal-body, .footer-row {
+                grid-template-columns: 1fr;
+            }
+            .hero-heading {
+                font-size: 32px;
+            }
+            nav ul {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-inner">
+                <div class="logo-container">
+                    <p class="logo-title">🌿 Green Life</p>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Trang chủ</a></li>
+                        <li><a href="#about">Giới thiệu</a></li>
+                        <li><a href="#products">Sản phẩm</a></li>
+                        <li><a href="#contact">Liên hệ</a></li>
+                    </ul>
+                </nav>
+                <div class="header-action">
+                    <a href="#contact" class="btn">Đặt hàng ngay</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="search-container">
+        <div class="container">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Tìm kiếm sản phẩm...">
+                <button onclick="searchProducts()">Tìm kiếm</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-inner">
+                <div class="hero-content">
+                    <h1 class="hero-heading">Green Life: Không gian xanh cho ngôi nhà bạn</h1>
+                    <p class="hero-desc">
+                        Khám phá bộ sưu tập chậu cây cảnh cao cấp với thiết kế hiện đại, chất liệu bền đẹp. Từ chậu nhựa truyền thống đến chậu trang trí sang trọng, chúng tôi mang đến giải pháp hoàn hảo cho mọi không gian xanh của bạn.
+                    </p>
+                    <div class="hero-row">
+                        <a href="#products" class="btn btn-action">Xem sản phẩm</a>
+                        <a href="#contact" style="color: #2e7d32; text-decoration: none; font-weight: 600;">Liên hệ tư vấn →</a>
+                    </div>
+                </div>
+                <div class="hero-media">
+                    <img src="./assets/product_img/Picture7.png" alt="Chậu cây cao cấp">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-inner">
+                <div class="about-content">
+                    <h2 class="section-heading">Tại sao chọn Green Life?</h2>
+                    <p class="section-desc">
+                        Green Life chuyên cung cấp các loại chậu cây cảnh chất lượng cao, phù hợp cho mọi nhu cầu trồng trọt và trang trí. Sản phẩm của chúng tôi được làm từ nhựa cao cấp, bền bỉ với thời gian và thân thiện với môi trường.
+                    </p>
+                    <div class="about-checklist">
+                        <div class="about-check-item">Chất liệu nhựa cao cấp, bền đẹp</div>
+                        <div class="about-check-item">Thiết kế thoát nước thông minh</div>
+                        <div class="about-check-item">Đa dạng mẫu mã và kích thước</div>
+                        <div class="about-check-item">Giá cả cạnh tranh, chất lượng đảm bảo</div>
+                    </div>
+                </div>
+                <div class="about-media">
+                    <img src="./assets/product_img/Picture3.png" alt="Chậu nhựa hoa văn" class="about-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="service">
+        <div class="container">
+            <div class="service-top">
+                <p class="service-desc">Sản phẩm của chúng tôi</p>
+                <h2 class="section-heading">Bộ sưu tập chậu cây</h2>
+            </div>
+
+            <div class="products-grid" id="productsGrid"></div>
+            
+            <div id="noResults" class="no-results">
+                <h3>Không tìm thấy sản phẩm</h3>
+                <p>Vui lòng thử từ khóa khác</p>
+            </div>
+        </div>
+    </section>
+
+    <div id="productModal" class="modal" onclick="closeModalOnBackdrop(event)">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <div class="modal-body">
+                <div class="modal-left">
+                    <img id="modalImage" src="" alt="" class="modal-image">
+                </div>
+                <div class="modal-right modal-details">
+                    <h2 id="modalName"></h2>
+                    <div class="modal-price" id="modalPrice"></div>
+                    
+                    <div class="detail-item">
+                        <div class="detail-label">Chất liệu:</div>
+                        <div class="detail-value" id="modalMaterial"></div>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <div class="detail-label">Màu sắc:</div>
+                        <div class="detail-value" id="modalColor"></div>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <div class="detail-label">Kích thước:</div>
+                        <div class="detail-value" id="modalSize"></div>
+                    </div>
+                    
+                    <div class="modal-description">
+                        <div class="detail-label">Mô tả:</div>
+                        <p id="modalDescription"></p>
+                    </div>
+                    
+                    <button class="btn-order" onclick="orderProduct()">Đặt hàng ngay</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-left">
+                    <p class="logo-title">🌿 Green Life</p>
+                    <form class="subscribe-form" onsubmit="return false;">
+                        <input type="email" placeholder="Nhập email của bạn">
+                        <button type="submit">
+                            <svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2.8125 9.00195H15.1875" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M10.125 3.93945L15.1875 9.00195L10.125 14.0645" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </form>
+                    <h3 class="footer-heading">Theo dõi chúng tôi</h3>
+                    <div class="social-list">
+                        <a href="https://www.facebook.com/ngtrunghieu2004?locale=vi_VN" class="social-item">
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path opacity="0.7" d="M12.4444 0H1.55556C0.7 0 0 0.7 0 1.55556V12.4444C0 13.3008 0.7 14 1.55556 14H7V8.55556H5.44444V6.63056H7V5.03611C7 3.353 7.94267 2.17078 9.92911 2.17078L11.3314 2.17233V4.19844H10.4004C9.62733 4.19844 9.33333 4.77867 9.33333 5.31689V6.63133H11.3307L10.8889 8.55556H9.33333V14H12.4444C13.3 14 14 13.3008 14 12.4444V1.55556C14 0.7 13.3 0 12.4444 0Z" fill="#2e7d32"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-right">
+                    <div class="footer-row">
+                        <div class="footer-column">
+                            <h3 class="footer-heading">Khám phá</h3>
+                            <ul class="footer-list">
+                                <li><a href="#about" class="footer-link">Giới thiệu</a></li>
+                                <li><a href="#products" class="footer-link">Sản phẩm</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="footer-column">
+                            <h3 class="footer-heading">Chính sách</h3>
+                            <ul class="footer-list">
+                                <li><a href="#!" class="footer-link">Câu hỏi thường gặp</a></li>
+                                <li><a href="#!" class="footer-link">Chính sách bảo mật</a></li>
+                                <li><a href="#!" class="footer-link">Điều khoản sử dụng</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="footer-column">
+                            <h3 class="footer-heading">Liên hệ</h3>
+                            <ul class="footer-list">
+                                <li><a href="mailto:nguyentrunghieutinn2004@gmail.com" class="footer-link">nguyentrunghieutinn2004@gmail.com</a></li>
+                                <li><a href="tel:0385539954" class="footer-link">0385539954</a></li>
+                                <li><a href="#!" class="footer-link">Ho Chi Minh City</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="footer-column">
+                            <h3 class="footer-heading">Giờ làm việc</h3>
+                            <ul class="footer-list">
+                                <li class="footer-link">T2 – T6: 08:00–20:00</li>
+                                <li class="footer-link">T7 – CN: 09:00–18:00</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const products = [
+            {
+                id: 1,
+                name: "Chậu nhựa trồng cây cơ bản",
+                image: "./assets/product_img/Picture1.jpg",
+                description: "Nhựa dày bền chắc, chịu nắng mưa tốt. Thiết kế thoát nước thông minh giúp cây phát triển khỏe, không lo úng rễ. Nhiều màu sắc hiện đại, nhẹ, dễ di chuyển, giá tốt.",
+                price: "25.000₫",
+                material: "Nhựa PP cao cấp không độc hại",
+                color: "Đen, Nâu, Xanh lá",
+                size: "Đường kính 150mm, Chiều cao 120mm"
+            },
+            {
+                id: 2,
+                name: "Chậu nhựa giả gốm cao cấp",
+                image: "./assets/product_img/Picture2.jpg",
+                description: "Được làm từ nhựa bền chắc, nhẹ, khó nứt vỡ, sử dụng lâu dài. Thiết kế lỗ thoát nước hợp lý giúp cây phát triển khỏe, hạn chế úng rễ. Màu sắc giả gốm đẹp mắt.",
+                price: "35.000₫",
+                material: "Nhựa PP không mùi, không độc hại",
+                color: "Trắng sữa, Be",
+                size: "Đường kính 180mm, Chiều cao 160mm"
+            },
+            {
+                id: 3,
+                name: "Chậu nhựa hoa văn truyền thống",
+                image: "./assets/product_img/Picture3.png",
+                description: "Chậu nhựa cao cấp, bền chắc, chịu nắng mưa tốt. Thiết kế miệng rộng, lỗ thoát nước hiệu quả. Hoa văn sắc nét, màu đỏ nổi bật, mang ý nghĩa phong thủy.",
+                price: "45.000₫",
+                material: "Nhựa PP cao cấp",
+                color: "Đỏ gạch, Đen",
+                size: "Đường kính 200mm, Chiều cao 180mm"
+            },
+            {
+                id: 4,
+                name: "Khay ươm mầm nhựa",
+                image: "./assets/product_img/Picture4.jpg",
+                description: "Khay ươm mầm nhựa cao cấp bền nhẹ, an toàn, không thấm nước, tái sử dụng nhiều lần. Thiết kế nhiều lỗ thoát nước, ô sâu giúp rễ cây phát triển khỏe, hạn chế úng.",
+                price: "17.000₫",
+                material: "Nhựa PP không mùi, không độc hại",
+                color: "Đỏ gạch, Đen",
+                size: "Đường kính miệng 105mm, Chiều cao 80mm"
+            },
+            {
+                id: 5,
+                name: "Chậu kim cương trang trí",
+                image: "./assets/product_img/Picture5.jpg",
+                description: "Thiết kế vân nổi lấp lánh như pha lê, mang lại vẻ sang trọng và hiện đại. Nhựa cao cấp bền, nhẹ, khó nứt vỡ, phù hợp trồng sen đá, xương rồng, cây mini.",
+                price: "28.000₫",
+                material: "Nhựa PS trong suốt cao cấp",
+                color: "                Trong suốt, Xanh nhạt",
+                size: "Đường kính 120mm, Chiều cao 100mm"
+            },
+            {
+                id: 6,
+                name: "Chậu ô vuông trang trí",
+                image: "./assets/product_img/Picture6.png",
+                description: "Chậu nhựa treo chắc chắn, chịu lực tốt, phù hợp treo ban công, hàng rào. Thiết kế thông minh giúp cây phát triển đều, tiết kiệm không gian.",
+                price: "32.000₫",
+                material: "Nhựa PP cao cấp",
+                color: "Trắng, Xanh lá",
+                size: "Dài 300mm, Cao 150mm"
+            },
+            {
+                id: 7,
+                name: "Chậu chồng hoa cao cấp",
+                image: "./assets/product_img/Picture7.png",
+                description: "Chậu chồng hoa cao cấp với thiết kế xếp tầng hiện đại, giúp trồng được nhiều cây trên cùng một không gian. Phù hợp trồng hoa, rau sạch, dâu tây, sen đá. Nhựa dày, bền chắc, chịu nắng mưa tốt, dễ tháo lắp và vệ sinh.",
+                price: "95.000₫",
+                material: "Nhựa PP cao cấp, thân thiện môi trường",
+                color: "Xanh lá, Trắng",
+                size: "Chiều cao tổng 600mm, Đường kính tầng 250mm"
+            }
+
+        ];
+
+        const productsGrid = document.getElementById("productsGrid");
+        const noResults = document.getElementById("noResults");
+
+        /* ================= RENDER PRODUCTS ================= */
+        function renderProducts(list) {
+            productsGrid.innerHTML = "";
+            if (list.length === 0) {
+                noResults.style.display = "block";
+                return;
+            }
+            noResults.style.display = "none";
+
+            list.forEach(product => {
+                const div = document.createElement("div");
+                div.className = "product-card";
+                div.onclick = () => openModal(product);
+
+                div.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-name">${product.name}</h3>
+                        <p class="product-desc">${product.description.substring(0, 80)}...</p>
+                        <div class="product-price">${product.price}</div>
+                    </div>
+                `;
+                productsGrid.appendChild(div);
+            });
+        }
+
+        /* ================= SEARCH ================= */
+        function searchProducts() {
+            const keyword = document.getElementById("searchInput").value.toLowerCase();
+            const filtered = products.filter(p =>
+                p.name.toLowerCase().includes(keyword)
+            );
+            renderProducts(filtered);
+        }
+
+        /* ================= MODAL ================= */
+        function openModal(product) {
+            document.getElementById("modalImage").src = product.image;
+            document.getElementById("modalName").innerText = product.name;
+            document.getElementById("modalPrice").innerText = product.price;
+            document.getElementById("modalMaterial").innerText = product.material;
+            document.getElementById("modalColor").innerText = product.color;
+            document.getElementById("modalSize").innerText = product.size;
+            document.getElementById("modalDescription").innerText = product.description;
+
+            document.getElementById("productModal").classList.add("active");
+        }
+
+        function closeModal() {
+            document.getElementById("productModal").classList.remove("active");
+        }
+
+        function closeModalOnBackdrop(e) {
+            if (e.target.id === "productModal") {
+                closeModal();
+            }
+        }
+
+        /* ================= ORDER ================= */
+        function orderProduct() {
+            alert("Cảm ơn bạn đã quan tâm! Chúng tôi sẽ liên hệ để xác nhận đơn hàng.");
+            closeModal();
+        }
+        closeModal();
+
+        /* ================= INIT ================= */
+        renderProducts(products);
+    </script>
+</body>
+</html>
